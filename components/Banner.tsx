@@ -2,23 +2,30 @@ import { StyleSheet, Text, View } from "react-native";
 import { ThemedView } from "./ThemedView";
 import { Colors } from "../constants/Colors";
 import Constants from "expo-constants";
+import { getCurrentFastInfo } from "../constants/FastsAndFeasts";
 
 const statusBarHeight = Constants.statusBarHeight;
 const BANNER_HEIGHT = 200 + statusBarHeight;
+
+const currentFast = getCurrentFastInfo();
 
 export function Banner() {
     return (
         <ThemedView style={styles.background} lightColor={Colors.light.banner} darkColor={Colors.dark.banner}>
             <View style={styles.banner}>
                 <View style={{ marginBottom: 20 }}>
-                    <Text style={styles.topTitle}>{"today"}</Text>
-                    <Text style={styles.fast}>{"Holy Great Fast"}</Text>
-                    {/* <Text style={styles.fastDescription}>{""}</Text> */}
-                    <Text style={styles.date}>{"February 24 - April 11"}</Text>
+                    <Text style={styles.topTitle}>{currentFast.tense}</Text>
+                    <Text style={styles.fast}>{currentFast.fastOrFeast}</Text>
+                    {currentFast.description && <Text style={styles.fastDescription}>{currentFast.description}</Text>}
+                    <Text style={styles.date}>
+                        {currentFast.endDate
+                            ? currentFast.startDate + " - " + currentFast.endDate
+                            : currentFast.startDate}
+                    </Text>
                 </View>
                 <View>
                     <Text style={styles.bottomTitle}>{"Coptic Orthodox Fasts & Feasts"}</Text>
-                    <Text style={styles.annual}>{"2025 AD  |  1741 - 1742 AM"}</Text>
+                    <Text style={styles.annual}>{`${currentFast.year} AD  |  ${currentFast.amYear} AM`}</Text>
                 </View>
             </View>
         </ThemedView>

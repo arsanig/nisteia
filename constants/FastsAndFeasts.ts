@@ -2,62 +2,325 @@ export const fastsAndFeasts = {
     year: "2025",
     amYear: "1741 – 1742",
     events: [
-        { id: "0", event: "The Holy Nativity Feast", type: "Feast", date: "January 7" },
-        { id: "1", event: "The Circumcision Feast", type: "Feast", date: "January 14" },
-        { id: "2", event: "The Holy Epiphany", type: "Fast", date: "January 19" },
-        { id: "3", event: "Feast of the Wedding of Cana of Galilee", type: "Feast", date: "January 21" },
-        { id: "4", event: "Jonah's (Nineveh) Fast", type: "Fast", date: "February 10–12" },
-        { id: "5", event: "Jonah's (Nineveh) Feast", type: "Feast", date: "February 13" },
-        { id: "6", event: "Presentation of the Lord into the Temple", type: "Fast", date: "February 15" },
-        { id: "7", event: "Holy Great Fast", type: "Fast", date: "February 24 – April 11" },
-        { id: "8", event: "The Feast of the Cross", type: "Feast", date: "March 19" },
-        { id: "9", event: "Annunciation Feast", type: "Feast", date: "April 7" },
-        { id: "10", event: "Lazarus Saturday", type: "Fast", date: "April 12" },
-        { id: "11", event: "Entry of our Lord into Jerusalem (Hosanna Sunday)", type: "Fast", date: "April 13" },
-        { id: "12", event: "Holy Pascha", type: "Fast", date: "April 14–16" },
-        { id: "13", event: "Covenant Thursday", type: "Fast", date: "April 17" },
-        { id: "14", event: "Good Friday", type: "Fast", date: "April 18" },
-        { id: "15", event: "Glorious Feast of the Resurrection", type: "Feast", date: "April 20" },
-        { id: "16", event: "Thomas’ Sunday", type: "Fast", date: "April 27" },
-        { id: "17", event: "Martyrdom of St. Mark the Evangelist", type: "Fast", date: "May 8" },
-        { id: "18", event: "The Holy Feast of Ascension", type: "Feast", date: "May 29" },
-        { id: "19", event: "Entry of the Lord into Egypt", type: "Fast", date: "June 1" },
-        { id: "20", event: "The Holy Pentecost Feast", type: "Feast", date: "June 8" },
-        { id: "21", event: "The Apostles' Fast", type: "Fast", date: "June 9 – July 11" },
+        {
+            id: "0",
+            eventTitle: "The Holy Nativity Feast",
+            description: "",
+            type: "Feast",
+            startDate: "January 7",
+            endDate: "",
+        },
+        {
+            id: "1",
+            eventTitle: "The Circumcision Feast",
+            description: "",
+            type: "Feast",
+            startDate: "January 14",
+            endDate: "",
+        },
+        {
+            id: "2",
+            eventTitle: "The Holy Epiphany",
+            description: "",
+            type: "Fast",
+            startDate: "January 19",
+            endDate: "",
+        },
+        {
+            id: "3",
+            eventTitle: "Feast of the Wedding of Cana of Galilee",
+            description: "",
+            type: "Feast",
+            startDate: "January 21",
+            endDate: "",
+        },
+        {
+            id: "4",
+            eventTitle: "Jonah's Fast",
+            description: "(Nineveh)",
+            type: "Fast",
+            startDate: "February 10",
+            endDate: "February 12",
+        },
+        {
+            id: "5",
+            eventTitle: "Jonah's Feast",
+            description: "(Nineveh)",
+            type: "Feast",
+            startDate: "February 13",
+            endDate: "",
+        },
+        {
+            id: "6",
+            eventTitle: "Presentation of the Lord into the Temple",
+            description: "",
+            type: "Fast",
+            startDate: "February 15",
+            endDate: "",
+        },
+        {
+            id: "7",
+            eventTitle: "Holy Great Fast",
+            description: "",
+            type: "Fast",
+            startDate: "February 24",
+            endDate: "April 11",
+        },
+        {
+            id: "8",
+            eventTitle: "The Feast of the Cross",
+            description: "",
+            type: "Feast",
+            startDate: "March 19",
+            endDate: "",
+        },
+        {
+            id: "9",
+            eventTitle: "Annunciation Feast",
+            description: "",
+            type: "Feast",
+            startDate: "April 7",
+            endDate: "",
+        },
+        {
+            id: "10",
+            eventTitle: "Lazarus Saturday",
+            description: "",
+            type: "Fast",
+            startDate: "April 12",
+            endDate: "",
+        },
+        {
+            id: "11",
+            eventTitle: "Entry of our Lord into Jerusalem",
+            description: "(Hosanna Sunday)",
+            type: "Fast",
+            startDate: "April 13",
+            endDate: "",
+        },
+        {
+            id: "12",
+            eventTitle: "Holy Pascha",
+            description: "",
+            type: "Fast",
+            startDate: "April 14",
+            endDate: "April 16",
+        },
+        {
+            id: "13",
+            eventTitle: "Covenant Thursday",
+            description: "",
+            type: "Fast",
+            startDate: "April 17",
+            endDate: "",
+        },
+        {
+            id: "14",
+            eventTitle: "Good Friday",
+            description: "",
+            type: "Fast",
+            startDate: "April 18",
+            endDate: "",
+        },
+        {
+            id: "15",
+            eventTitle: "Glorious Feast of the Resurrection",
+            description: "",
+            type: "Feast",
+            startDate: "April 20",
+            endDate: "",
+        },
+        {
+            id: "16",
+            eventTitle: "Thomas’ Sunday",
+            description: "",
+            type: "Fast",
+            startDate: "April 27",
+            endDate: "",
+        },
+        {
+            id: "17",
+            eventTitle: "Martyrdom of St. Mark the Evangelist",
+            description: "",
+            type: "Fast",
+            startDate: "May 8",
+            endDate: "",
+        },
+        {
+            id: "18",
+            eventTitle: "The Holy Feast of Ascension",
+            description: "",
+            type: "Feast",
+            startDate: "May 29",
+            endDate: "",
+        },
+        {
+            id: "19",
+            eventTitle: "Entry of the Lord into Egypt",
+            description: "",
+            type: "Fast",
+            startDate: "June 1",
+            endDate: "",
+        },
+        {
+            id: "20",
+            eventTitle: "The Holy Pentecost Feast",
+            description: "",
+            type: "Feast",
+            startDate: "June 8",
+            endDate: "",
+        },
+        {
+            id: "21",
+            eventTitle: "The Apostles' Fast",
+            description: "",
+            type: "Fast",
+            startDate: "June 9",
+            endDate: "July 11",
+        },
         {
             id: "22",
-            event: "The Apostles' Feast (Martyrdom of St. Peter & St. Paul)",
+            eventTitle: "The Apostles' Feast",
+            description: "(Martyrdom of St. Peter & St. Paul)",
             type: "Feast",
-            date: "July 12",
+            startDate: "July 12",
+            endDate: "",
         },
-        { id: "23", event: "St. Mary's Fast", type: "Fast", date: "August 7–21" },
-        { id: "24", event: "Transfiguration Feast", type: "Feast", date: "August 19" },
-        { id: "25", event: "Assumption of St. Mary's Body", type: "Fast", date: "August 22" },
-        { id: "26", event: "The Nayrouz Feast (Coptic New Year)", type: "Feast", date: "September 11" },
-        { id: "27", event: "The Feast of the Cross (Three days)", type: "Feast", date: "September 27–29" },
-        { id: "28", event: "The Holy Nativity Fast", type: "Fast", date: "November 25 – January 6" },
+        {
+            id: "23",
+            eventTitle: "St. Mary's Fast",
+            description: "",
+            type: "Fast",
+            startDate: "August 7",
+            endDate: "August 21",
+        },
+        {
+            id: "24",
+            eventTitle: "Transfiguration Feast",
+            description: "",
+            type: "Feast",
+            startDate: "August 19",
+            endDate: "",
+        },
+        {
+            id: "25",
+            eventTitle: "Assumption of St. Mary's Body",
+            description: "",
+            type: "Fast",
+            startDate: "August 22",
+            endDate: "",
+        },
+        {
+            id: "26",
+            eventTitle: "The Nayrouz Feast",
+            description: "(Coptic New Year)",
+            type: "Feast",
+            startDate: "September 11",
+            endDate: "",
+        },
+        {
+            id: "27",
+            eventTitle: "The Feast of the Cross",
+            description: "(Three days)",
+            type: "Feast",
+            startDate: "September 27",
+            endDate: "September 29",
+        },
+        {
+            id: "28",
+            eventTitle: "The Holy Nativity Fast",
+            description: "",
+            type: "Fast",
+            startDate: "November 25",
+            endDate: "January 6",
+        },
     ],
 };
 
 type CurrentFastSchema = {
-    tense: "today" | "next fast";
+    tense: "today" | "next fast" | "next feast";
     year: string;
     amYear: string;
     fastOrFeast: string | undefined;
-    date: string | undefined;
+    description?: string;
+    startDate: string | undefined;
+    endDate?: string;
 };
 
 // Needa write this to filter for current fast or feast
 export const getCurrentFastInfo = (): CurrentFastSchema => {
-    const currentFastOrFeast = fastsAndFeasts.events.find((event) => {
-        event.date;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Normalize today's date to remove time differences
+
+    let currentFastOrFeast = fastsAndFeasts.events.find((event) => {
+        const start = new Date(convertDateString(`${event.startDate} ${fastsAndFeasts.year}`));
+        start.setHours(24, 0, 0, 0); // Normalize start date
+
+        if (event.endDate) {
+            const end = new Date(convertDateString(`${event.endDate} ${fastsAndFeasts.year}`));
+            end.setHours(47, 59, 59, 999); // Ensure full day inclusion
+            return today >= start && today <= end;
+        }
+
+        return today.getDate() === start.getDate();
     });
+
+    let tense = "today" as const;
+    if (!currentFastOrFeast) {
+        tense = "next fast";
+        currentFastOrFeast = getNextClosestEvent() ?? undefined;
+    }
+
     return {
-        tense: "today",
+        tense,
         year: fastsAndFeasts.year,
         amYear: fastsAndFeasts.amYear,
-        fastOrFeast: currentFastOrFeast?.event,
-        // description: currentFastOrFeast?.description,
-        date: currentFastOrFeast?.date,
+        fastOrFeast: currentFastOrFeast?.eventTitle,
+        description: currentFastOrFeast?.description,
+        startDate: currentFastOrFeast?.startDate,
+        endDate: currentFastOrFeast?.endDate,
     };
 };
+
+function convertDateString(dateStr: string) {
+    const months = {
+        January: "01",
+        February: "02",
+        March: "03",
+        April: "04",
+        May: "05",
+        June: "06",
+        July: "07",
+        August: "08",
+        September: "09",
+        October: "10",
+        November: "11",
+        December: "12",
+    };
+
+    const [month, day, year] = dateStr.split(" "); // Split into parts
+    const formattedDay = day.padStart(2, "0"); // Ensure two-digit day
+
+    return `${year}-${months[month]}-${formattedDay}`;
+}
+
+function getNextClosestEvent() {
+    const today = new Date();
+
+    // Find the next closest event
+    let nextEvent = null;
+    let minDiff = Infinity;
+
+    for (const event of fastsAndFeasts.events) {
+        const eventDate = new Date(convertDateString(`${event.startDate} ${fastsAndFeasts.year}`));
+        eventDate.setHours(24, 0, 0, 0); // Normalize start date
+        const diff = eventDate - today;
+
+        if (diff > 0 && diff < minDiff) {
+            minDiff = diff;
+            nextEvent = event;
+        }
+    }
+
+    return nextEvent;
+}

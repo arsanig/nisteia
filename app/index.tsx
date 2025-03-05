@@ -12,7 +12,14 @@ export default function Home() {
             <FlatList
                 contentContainerStyle={styles.listContentContainer}
                 data={fastsAndFeasts.events}
-                renderItem={({ item }) => <ListItem title={item.event} date={item.date} />}
+                renderItem={({ item }) => (
+                    <ListItem
+                        title={item.eventTitle}
+                        description={item.description}
+                        startDate={item.startDate}
+                        endDate={item.endDate ? item.endDate : ""}
+                    />
+                )}
                 keyExtractor={(item) => item.id}
             />
         </ThemedView>
