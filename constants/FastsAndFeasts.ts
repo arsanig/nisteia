@@ -38,3 +38,26 @@ export const fastsAndFeasts = {
         { id: "28", event: "The Holy Nativity Fast", type: "Fast", date: "November 25 – January 6" },
     ],
 };
+
+type CurrentFastSchema = {
+    tense: "today" | "next fast";
+    year: string;
+    amYear: string;
+    fastOrFeast: string | undefined;
+    date: string | undefined;
+};
+
+// Needa write this to filter for current fast or feast
+export const getCurrentFastInfo = (): CurrentFastSchema => {
+    const currentFastOrFeast = fastsAndFeasts.events.find((event) => {
+        event.date;
+    });
+    return {
+        tense: "today",
+        year: fastsAndFeasts.year,
+        amYear: fastsAndFeasts.amYear,
+        fastOrFeast: currentFastOrFeast?.event,
+        // description: currentFastOrFeast?.description,
+        date: currentFastOrFeast?.date,
+    };
+};

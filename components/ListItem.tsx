@@ -7,7 +7,7 @@ export function ListItem({ title, date }: ListItemProps) {
     return (
         <View style={styles.item}>
             <ThemedListText type="fast">{title}</ThemedListText>
-            <ThemedListText>{date}</ThemedListText>
+            <ThemedListText type="date">{date}</ThemedListText>
         </View>
     );
 }

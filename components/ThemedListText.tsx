@@ -4,7 +4,7 @@ import { useThemeColor } from "../hooks/useThemeColor";
 export type ThemedListTextProps = TextProps & {
     lightColor?: string;
     darkColor?: string;
-    type?: "default" | "fast" | "date";
+    type?: "fast" | "date";
 };
 
 export function ThemedListText({ style, lightColor, darkColor, type, ...rest }: ThemedListTextProps) {
@@ -24,16 +24,13 @@ export function ThemedListText({ style, lightColor, darkColor, type, ...rest }: 
 }
 
 const styles = StyleSheet.create({
-    default: {
-        fontSize: 16,
-        lineHeight: 24,
-    },
     fast: {
         fontSize: 20,
         paddingBottom: 14,
+        fontFamily: "Barlow400",
     },
     date: {
-        fontSize: 32,
-        lineHeight: 32,
+        fontSize: 14,
+        fontFamily: "Barlow400",
     },
 });

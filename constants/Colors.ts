@@ -11,4 +11,5 @@ export const Colors = {
         // icon: "#9BA1A6",
         banner: "#363457",
     },
+    sand: "#C9A690",
 };
