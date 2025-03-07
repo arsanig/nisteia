@@ -2,7 +2,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { ThemedView } from "./ThemedView";
 import { Colors } from "../constants/Colors";
 import Constants from "expo-constants";
-import { getCurrentFastInfo } from "../constants/FastsAndFeasts";
+import { getCurrentFastInfo } from "../helpers/getFastOrFeast";
+import { getNoEatFish } from "../helpers/getNoEatFish";
 
 const statusBarHeight = Constants.statusBarHeight;
 const BANNER_HEIGHT = 200 + statusBarHeight;
@@ -15,17 +16,26 @@ export function Banner() {
             <View style={styles.banner}>
                 <View style={{ marginBottom: 20 }}>
                     <Text style={styles.topTitle}>{currentFast.tense}</Text>
-                    <Text style={styles.fast}>{currentFast.fastOrFeast}</Text>
-                    {currentFast.description && <Text style={styles.fastDescription}>{currentFast.description}</Text>}
+                    <Text style={styles.fast}>{`${currentFast.fastOrFeast} ${
+                        currentFast.description ? currentFast.description : ""
+                    }`}</Text>
                     <Text style={styles.date}>
                         {currentFast.endDate
                             ? currentFast.startDate + " - " + currentFast.endDate
                             : currentFast.startDate}
                     </Text>
                 </View>
-                <View>
-                    <Text style={styles.bottomTitle}>{"Coptic Orthodox Fasts & Feasts"}</Text>
-                    <Text style={styles.annual}>{`${currentFast.year} AD  |  ${currentFast.amYear} AM`}</Text>
+                <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                    <View>
+                        <Text style={styles.bottomTitle}>{"Coptic Orthodox Fasts & Feasts"}</Text>
+                        <Text style={styles.annual}>{`${currentFast.year} AD  |  ${currentFast.amYear} AM`}</Text>
+                    </View>
+                    {getNoEatFish() && (
+                        <View style={{ flexDirection: "row", alignItems: "center" }}>
+                            <Text style={{ fontSize: 18 }}>{"👎"}</Text>
+                            <Text style={{ fontSize: 26 }}>{"🐠"}</Text>
+                        </View>
+                    )}
                 </View>
             </View>
         </ThemedView>

@@ -18,6 +18,7 @@ export default function Home() {
                         description={item.description}
                         startDate={item.startDate}
                         endDate={item.endDate ? item.endDate : ""}
+                        noFish={item.noFish}
                     />
                 )}
                 keyExtractor={(item) => item.id}
