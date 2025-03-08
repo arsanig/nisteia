@@ -12,7 +12,7 @@ export type CurrentFastSchema = {
 };
 
 let tense: CurrentFastSchema["tense"] = "today";
-const today = new Date("2025-04-19").toISOString();
+const today = new Date().toISOString();
 
 export const filterEvents = () => {
     const events = fastsAndFeasts.events.filter((e) => {

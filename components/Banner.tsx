@@ -35,8 +35,8 @@ export const Banner = () => {
                     </View>
                     {getNoEatFish() && (
                         <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
-                            <Text style={{ fontSize: 18 }}>{"👎"}</Text>
-                            <Text style={{ fontSize: 26 }}>{"🐠"}</Text>
+                            <Text style={{ fontSize: 18 }}>{"👎 "}</Text>
+                            <Text style={{ fontSize: 24 }}>{"🍣"}</Text>
                         </View>
                     )}
                 </View>

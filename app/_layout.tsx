@@ -4,8 +4,12 @@ import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
+import * as SplashScreen from "expo-splash-screen";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
+    const colorScheme = useColorScheme();
     const [loaded] = useFonts({
         NotoSerif400: require("../assets/fonts/noto/noto-serif-latin-400-normal.ttf"),
         NotoSerif700: require("../assets/fonts/noto/noto-serif-latin-700-normal.ttf"),
@@ -15,15 +19,14 @@ export default function Layout() {
 
     useEffect(() => {
         if (loaded) {
-            // SplashScreen.hideAsync();
+            SplashScreen.hideAsync();
         }
     }, [loaded]);
 
-    // if (!loaded) {
-    //     return null;
-    // }
+    if (!loaded) {
+        return null;
+    }
 
-    const colorScheme = useColorScheme();
     return (
         <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
             <Stack>

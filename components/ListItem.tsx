@@ -18,7 +18,7 @@ export function ListItem({ title, description, startDate, endDate, noFish }: Lis
             </View>
             <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Text style={{ fontSize: 18 }}>{noFish ? "👎 " : null}</Text>
-                <Text style={{ fontSize: 26 }}>{noFish ? "🐠" : null}</Text>
+                <Text style={{ fontSize: 24 }}>{noFish ? "🍣" : null}</Text>
             </View>
         </View>
     );
