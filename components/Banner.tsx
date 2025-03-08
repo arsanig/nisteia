@@ -4,13 +4,16 @@ import { Colors } from "../constants/Colors";
 import Constants from "expo-constants";
 import { getCurrentFastInfo } from "../helpers/getFastOrFeast";
 import { getNoEatFish } from "../helpers/getNoEatFish";
+import { formatDate } from "../helpers/date";
 
 const statusBarHeight = Constants.statusBarHeight;
 const BANNER_HEIGHT = 200 + statusBarHeight;
 
-const currentFast = getCurrentFastInfo();
+export const Banner = () => {
+    const currentFast = getCurrentFastInfo();
+    const displayStartDate = formatDate(currentFast.startDate ?? "");
+    const displayEndDate = formatDate(currentFast.endDate ?? "");
 
-export function Banner() {
     return (
         <ThemedView style={styles.background} lightColor={Colors.light.banner} darkColor={Colors.dark.banner}>
             <View style={styles.banner}>
@@ -20,18 +23,18 @@ export function Banner() {
                         currentFast.description ? currentFast.description : ""
                     }`}</Text>
                     <Text style={styles.date}>
-                        {currentFast.endDate
-                            ? currentFast.startDate + " - " + currentFast.endDate
-                            : currentFast.startDate}
+                        {displayEndDate !== displayStartDate
+                            ? displayStartDate + " - " + displayEndDate
+                            : displayStartDate}
                     </Text>
                 </View>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                     <View>
                         <Text style={styles.bottomTitle}>{"Coptic Orthodox Fasts & Feasts"}</Text>
                         <Text style={styles.annual}>{`${currentFast.year} AD  |  ${currentFast.amYear} AM`}</Text>
                     </View>
                     {getNoEatFish() && (
-                        <View style={{ flexDirection: "row", alignItems: "center" }}>
+                        <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
                             <Text style={{ fontSize: 18 }}>{"👎"}</Text>
                             <Text style={{ fontSize: 26 }}>{"🐠"}</Text>
                         </View>
@@ -40,7 +43,7 @@ export function Banner() {
             </View>
         </ThemedView>
     );
-}
+};
 
 const styles = StyleSheet.create({
     background: {
