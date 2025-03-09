@@ -2,11 +2,11 @@ import { View, StyleSheet, Text } from "react-native";
 import { ThemedListText } from "./ThemedListText";
 import { formatDate } from "../helpers/date";
 
-type ListItemProps = { title: string; description?: string; startDate: string; endDate?: string; noFish: boolean };
+type ListItemProps = { title: string; description?: string; startDate: number; endDate: number; noFish: boolean };
 
 export function ListItem({ title, description, startDate, endDate, noFish }: ListItemProps) {
-    const formattedStartDate = formatDate(startDate ?? "");
-    const formattedEndDate = formatDate(endDate ?? "");
+    const formattedStartDate = formatDate(startDate);
+    const formattedEndDate = formatDate(endDate);
     return (
         <View style={styles.item}>
             <View style={{ maxWidth: "80%" }}>

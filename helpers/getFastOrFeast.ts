@@ -1,36 +1,41 @@
 import { fastsAndFeasts } from "../constants/FastsAndFeasts";
 
+type FastOrFeastSchema = {
+    id: string;
+    eventTitle: string;
+    description?: string;
+    type: string;
+    startDate: number;
+    endDate: number;
+    noFish: boolean;
+};
+
 export type CurrentFastSchema = {
     tense: "today" | "next fast" | "next feast";
     year: string;
     amYear: string;
     fastOrFeast: string | undefined;
     description?: string;
-    startDate: string | undefined;
-    endDate?: string;
+    startDate: number;
+    endDate: number;
     noFish: boolean;
 };
 
-let tense: CurrentFastSchema["tense"] = "today";
-const today = new Date().toISOString();
+const today = Date.now();
 
 export const filterEvents = () => {
-    const events = fastsAndFeasts.events.filter((e) => {
-        if (today === e.startDate || (today >= e.startDate && today <= e.endDate)) {
-            return e;
-        }
-    });
+    const events = fastsAndFeasts.events.filter((e) => today >= e.startDate && today <= e.endDate);
     return events;
 };
 
-const getNextClosestEvent = () => {
+const getNextClosestEvent = (events: FastOrFeastSchema[]): FastOrFeastSchema | undefined => {
     let nextEvent = undefined;
     let minDiff = Infinity;
 
-    fastsAndFeasts.events.forEach((e) => {
-        const diff = (new Date(e.startDate).getTime() - new Date(today).getTime()) / 1000 / 60;
+    events.forEach((e) => {
+        const diff = e.endDate - today;
 
-        if (diff > 0 && diff < minDiff) {
+        if (diff >= 0 && diff < minDiff) {
             minDiff = diff;
             nextEvent = e;
         }
@@ -40,18 +45,15 @@ const getNextClosestEvent = () => {
 };
 
 export const getCurrentFastInfo = (): CurrentFastSchema => {
-    const events = filterEvents();
     let currentFastOrFeast = undefined;
+    const events = filterEvents();
+    currentFastOrFeast = getNextClosestEvent(events) ?? undefined;
 
-    if (events.length == 1) {
-        currentFastOrFeast = events[0];
-    } else if (events.length > 1) {
-        currentFastOrFeast = events?.find((e) => today === e.startDate);
-    }
-
-    if (currentFastOrFeast === undefined) {
-        currentFastOrFeast = getNextClosestEvent() ?? undefined;
-        tense = currentFastOrFeast?.type === "fast" ? "next fast" : "next feast";
+    let tense: CurrentFastSchema["tense"] = "today";
+    if (currentFastOrFeast) {
+        if (today < currentFastOrFeast?.startDate || today > currentFastOrFeast?.endDate) {
+            tense = currentFastOrFeast?.type === "fast" ? "next fast" : "next feast";
+        }
     }
 
     return {
@@ -60,8 +62,8 @@ export const getCurrentFastInfo = (): CurrentFastSchema => {
         amYear: fastsAndFeasts.amYear,
         fastOrFeast: currentFastOrFeast?.eventTitle,
         description: currentFastOrFeast?.description,
-        startDate: currentFastOrFeast?.startDate,
-        endDate: currentFastOrFeast?.endDate,
+        startDate: currentFastOrFeast?.startDate || today,
+        endDate: currentFastOrFeast?.endDate || today,
         noFish: currentFastOrFeast?.noFish ?? false,
     };
 };

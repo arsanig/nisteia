@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import { Banner } from "../components/Banner";
 import { ListItem } from "../components/ListItem";
 import { fastsAndFeasts } from "../constants/FastsAndFeasts";
@@ -17,7 +17,7 @@ export default function Home() {
                         title={item.eventTitle}
                         description={item.description}
                         startDate={item.startDate}
-                        endDate={item.endDate ? item.endDate : ""}
+                        endDate={item.endDate}
                         noFish={item.noFish}
                     />
                 )}
