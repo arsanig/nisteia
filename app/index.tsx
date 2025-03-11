@@ -2,7 +2,7 @@ import { FlatList, StyleSheet } from "react-native";
 import { Banner } from "../components/Banner";
 import { ListItem } from "../components/ListItem";
 import { fastsAndFeasts } from "../constants/FastsAndFeasts";
-import { ThemedView } from "../components/ThemedView";
+import ThemedView from "../components/ThemedView";
 import Constants from "expo-constants";
 
 export default function Home() {
