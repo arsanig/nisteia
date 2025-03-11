@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ThemedView /> Renders in the correctly in dark mode 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#E7E7E7",
+      },
+      undefined,
+    ]
+  }
+  testID="themed-view"
+/>
+`;
+
+exports[`<ThemedView /> Renders in the correctly in light mode 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#E7E7E7",
+      },
+      undefined,
+    ]
+  }
+  testID="themed-view"
+/>
+`;
